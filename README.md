@@ -27,13 +27,14 @@ A clean and responsive weather consultation application built with React 19, Typ
 
 ### Roadmap
 - [x] Project setup with React 19, TypeScript, and Vite.
-- [ ] Layout and design using CSS Modules.
-- [ ] Search form with controlled inputs for city and country.
+- [x] Layout and design using CSS Modules.
+- [x] Search form with controlled inputs and validation for city and country.
 - [ ] Custom hook `useWeather` for fetching and managing weather data.
 - [ ] Environment variables configuration for API key security (`VITE_API_KEY`).
 - [ ] Asynchronous API requests for geocoding and weather data.
 - [ ] API response typing: comparison between Type Guards, Zod, and Valibot.
 - [ ] UI states: loading spinner, conditional results display, error handling, and search reset.
+- [ ] Post-project challenge: refactor form handling using React Hook Form.
 
 ### Local Installation
 1. Clone the repository:
@@ -79,13 +80,14 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 
 ### Hoja de ruta (Roadmap)
 - [x] Inicialización del proyecto con React 19, TypeScript y Vite.
-- [ ] Estructuración y maquetación visual con CSS Modules.
-- [ ] Formulario de búsqueda con campos controlados para ciudad y país.
+- [x] Estructuración y maquetación visual con CSS Modules.
+- [x] Formulario de búsqueda con campos controlados y validación para ciudad y país.
 - [ ] Custom Hook `useWeather` para centralizar la lógica de consulta.
 - [ ] Configuración de variables de entorno para proteger la API key (`VITE_API_KEY`).
 - [ ] Peticiones asíncronas hacia los endpoints de geocodificación y clima.
 - [ ] Tipado de respuestas de API: comparativa entre Type Guards, Zod y Valibot.
 - [ ] Estados de la interfaz: spinner de carga, renderizado condicional, manejo de errores y reseteo.
+- [ ] Reto post-proyecto: refactorizar la gestión del formulario con React Hook Form.
 
 ### Instalación local
 1. Clona el repositorio:
