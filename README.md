@@ -1,0 +1,107 @@
+# Weather Finder
+
+[English](#english) | [Español](#español)
+
+---
+
+## English
+
+A clean and responsive weather consultation application built with React 19, TypeScript, and CSS Modules. It fetches real-time weather data from the OpenWeatherMap API based on city and country searches.
+
+### Live Demo
+- [weatherfinder.thepuchadesproject.com](https://weatherfinder.thepuchadesproject.com)
+
+### What the project does
+- Allows users to search the current weather for cities across different countries.
+- Validates search forms to prevent empty or invalid queries.
+- Manages asynchronous API calls and handles loading states with a custom spinner.
+- Displays friendly error alerts when a city is not found.
+- Demonstrates safe handling and validation of external API responses using TypeScript, type guards, and schema validation libraries (Zod and Valibot).
+
+### Tech Stack
+- **React 19**: Modern component-based UI development.
+- **TypeScript**: Strict static typing for components, hooks, and API data.
+- **CSS Modules**: Scoped and maintainable component styling without class collisions.
+- **Vite**: Fast development build tool and local server.
+- **OpenWeatherMap API**: External weather and geocoding services.
+
+### Roadmap
+- [x] Project setup with React 19, TypeScript, and Vite.
+- [ ] Layout and design using CSS Modules.
+- [ ] Search form with controlled inputs for city and country.
+- [ ] Custom hook `useWeather` for fetching and managing weather data.
+- [ ] Environment variables configuration for API key security (`VITE_API_KEY`).
+- [ ] Asynchronous API requests for geocoding and weather data.
+- [ ] API response typing: comparison between Type Guards, Zod, and Valibot.
+- [ ] UI states: loading spinner, conditional results display, error handling, and search reset.
+
+### Local Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Puchades/weather-finder.git
+   cd weather-finder
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env.local` file in the root directory and add your OpenWeatherMap API key:
+   ```env
+   VITE_API_KEY=your_api_key_here
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## Español
+
+Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript y CSS Modules. Consulta datos del clima en tiempo real desde la API de OpenWeatherMap a partir de búsquedas por ciudad y país.
+
+### Demo en vivo
+- [weatherfinder.thepuchadesproject.com](https://weatherfinder.thepuchadesproject.com)
+
+### Qué hace el proyecto
+- Permite buscar el clima actual de ciudades en distintos países.
+- Valida los formularios de búsqueda para evitar consultas vacías o incompletas.
+- Gestiona peticiones asíncronas a la API y muestra estados de carga con un spinner visual.
+- Controla errores y muestra avisos claros cuando no se encuentra una ciudad.
+- Muestra cómo tipar y validar respuestas de APIs externas de forma segura mediante TypeScript, Type Guards y validación de esquemas (Zod y Valibot).
+
+### Stack Tecnológico
+- **React 19**: Construcción de interfaces con componentes modernos.
+- **TypeScript**: Tipado estático estricto para componentes, hooks y respuestas de API.
+- **CSS Modules**: Estilos locales y modulares por componente para evitar conflictos.
+- **Vite**: Entorno de desarrollo rápido y servidor local.
+- **OpenWeatherMap API**: Servicio externo para datos climáticos y geolocalización.
+
+### Hoja de ruta (Roadmap)
+- [x] Inicialización del proyecto con React 19, TypeScript y Vite.
+- [ ] Estructuración y maquetación visual con CSS Modules.
+- [ ] Formulario de búsqueda con campos controlados para ciudad y país.
+- [ ] Custom Hook `useWeather` para centralizar la lógica de consulta.
+- [ ] Configuración de variables de entorno para proteger la API key (`VITE_API_KEY`).
+- [ ] Peticiones asíncronas hacia los endpoints de geocodificación y clima.
+- [ ] Tipado de respuestas de API: comparativa entre Type Guards, Zod y Valibot.
+- [ ] Estados de la interfaz: spinner de carga, renderizado condicional, manejo de errores y reseteo.
+
+### Instalación local
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Puchades/weather-finder.git
+   cd weather-finder
+   ```
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+3. Crea un archivo `.env.local` en la raíz del proyecto con tu clave de OpenWeatherMap:
+   ```env
+   VITE_API_KEY=tu_api_key_aqui
+   ```
+4. Inicia el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
