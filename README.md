@@ -22,6 +22,7 @@ A clean and responsive weather consultation application built with React 19, Typ
 - **React 19**: Modern component-based UI development.
 - **TypeScript**: Strict static typing for components, hooks, and API data.
 - **CSS Modules**: Scoped and maintainable component styling without class collisions.
+- **Axios**: Promise-based HTTP client for external API requests.
 - **Vite**: Fast development build tool and local server.
 - **OpenWeatherMap API**: External weather and geocoding services.
 
@@ -29,8 +30,8 @@ A clean and responsive weather consultation application built with React 19, Typ
 - [x] Project setup with React 19, TypeScript, and Vite.
 - [x] Layout and design using CSS Modules.
 - [x] Search form with controlled inputs and validation for city and country.
-- [ ] Custom hook `useWeather` for fetching and managing weather data.
-- [ ] Environment variables configuration for API key security (`VITE_API_KEY`).
+- [x] Custom hook `useWeather` for fetching and managing weather data.
+- [x] Environment variables configuration for API key security (`VITE_API_KEY`).
 - [ ] Asynchronous API requests for geocoding and weather data.
 - [ ] API response typing: comparison between Type Guards, Zod, and Valibot.
 - [ ] UI states: loading spinner, conditional results display, error handling, and search reset.
@@ -75,6 +76,7 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - **React 19**: Construcción de interfaces con componentes modernos.
 - **TypeScript**: Tipado estático estricto para componentes, hooks y respuestas de API.
 - **CSS Modules**: Estilos locales y modulares por componente para evitar conflictos.
+- **Axios**: Cliente HTTP basado en promesas para consultas a la API externa.
 - **Vite**: Entorno de desarrollo rápido y servidor local.
 - **OpenWeatherMap API**: Servicio externo para datos climáticos y geolocalización.
 
@@ -82,8 +84,8 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - [x] Inicialización del proyecto con React 19, TypeScript y Vite.
 - [x] Estructuración y maquetación visual con CSS Modules.
 - [x] Formulario de búsqueda con campos controlados y validación para ciudad y país.
-- [ ] Custom Hook `useWeather` para centralizar la lógica de consulta.
-- [ ] Configuración de variables de entorno para proteger la API key (`VITE_API_KEY`).
+- [x] Custom Hook `useWeather` para centralizar la lógica de consulta.
+- [x] Configuración de variables de entorno para proteger la API key (`VITE_API_KEY`).
 - [ ] Peticiones asíncronas hacia los endpoints de geocodificación y clima.
 - [ ] Tipado de respuestas de API: comparativa entre Type Guards, Zod y Valibot.
 - [ ] Estados de la interfaz: spinner de carga, renderizado condicional, manejo de errores y reseteo.
