@@ -22,6 +22,7 @@ A clean and responsive weather consultation application built with React 19, Typ
 - **React 19**: Modern component-based UI development.
 - **TypeScript**: Strict static typing for components, hooks, and API data.
 - **CSS Modules**: Scoped and maintainable component styling without class collisions.
+- **React Hook Form**: Performant form state management and input validation.
 - **Axios**: Promise-based HTTP client for external API requests.
 - **Zod & Valibot**: Schema validation libraries to guarantee runtime type safety for API responses.
 - **Vite**: Fast development build tool and local server.
@@ -36,7 +37,7 @@ A clean and responsive weather consultation application built with React 19, Typ
 - [x] Asynchronous API requests for geocoding and weather data.
 - [x] API response typing: comparison between Type Guards, Zod, and Valibot.
 - [x] UI states: loading spinner, error handling (not found), and search reset.
-- [ ] Post-project challenge: refactor form handling using React Hook Form.
+- [x] Post-project challenge: refactor form handling using React Hook Form.
 
 ### Local Installation
 1. Clone the repository:
@@ -77,6 +78,7 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - **React 19**: Construcción de interfaces con componentes modernos.
 - **TypeScript**: Tipado estático estricto para componentes, hooks y respuestas de API.
 - **CSS Modules**: Estilos locales y modulares por componente para evitar conflictos.
+- **React Hook Form**: Gestión eficiente del estado de formularios y validaciones.
 - **Axios**: Cliente HTTP basado en promesas para consultas a la API externa.
 - **Zod y Valibot**: Librerías de validación de esquemas para asegurar el tipado de respuestas de API en tiempo de ejecución.
 - **Vite**: Entorno de desarrollo rápido y servidor local.
@@ -91,7 +93,7 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - [x] Peticiones asíncronas hacia los endpoints de geocodificación y clima.
 - [x] Tipado de respuestas de API: comparativa entre Type Guards, Zod y Valibot.
 - [x] Estados de la interfaz: spinner de carga, manejo de errores (ciudad no encontrada) y reseteo.
-- [ ] Reto post-proyecto: refactorizar la gestión del formulario con React Hook Form.
+- [x] Reto post-proyecto: refactorizar la gestión del formulario con React Hook Form.
 
 ### Instalación local
 1. Clona el repositorio:

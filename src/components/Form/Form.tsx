@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type SubmitEvent } from "react";
+import { useForm } from "react-hook-form";
 import { countries } from "../../data/countries";
 import styles from "./Form.module.css";
 import type { SearchType } from "../../types";
@@ -9,37 +9,28 @@ type FormProps = {
 };
 
 export default function Form({ fetchWeather }: FormProps) {
-  const [search, setSearch] = useState<SearchType>({
-    city: "",
-    country: "",
-  });
-  const [alert, setAlert] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SearchType>();
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>,
-  ) => {
-    setSearch({ ...search, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (Object.values(search).includes("")) {
-      setAlert("All fields are mandatory");
-      return;
-    }
-    fetchWeather(search);
+  const onSubmit = (data: SearchType) => {
+    fetchWeather(data);
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      {alert && <Alert>{alert}</Alert>}
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+      {errors.country && <Alert>{errors.country.message}</Alert>}
+      {errors.city && <Alert>{errors.city.message}</Alert>}
+
       <div className={styles.field}>
         <label htmlFor="country">Country:</label>
         <select
-          name="country"
           id="country"
-          value={search.country}
-          onChange={handleChange}
+          {...register("country", {
+            required: "Country is mandatory",
+          })}
         >
           <option value="">-- Select a Country --</option>
           {countries.map((country) => (
@@ -55,10 +46,10 @@ export default function Form({ fetchWeather }: FormProps) {
         <input
           id="city"
           type="text"
-          name="city"
           placeholder="City"
-          value={search.city}
-          onChange={handleChange}
+          {...register("city", {
+            required: "City is mandatory",
+          })}
         />
       </div>
 
