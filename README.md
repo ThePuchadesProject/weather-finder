@@ -23,6 +23,7 @@ A clean and responsive weather consultation application built with React 19, Typ
 - **TypeScript**: Strict static typing for components, hooks, and API data.
 - **CSS Modules**: Scoped and maintainable component styling without class collisions.
 - **Axios**: Promise-based HTTP client for external API requests.
+- **Zod & Valibot**: Schema validation libraries to guarantee runtime type safety for API responses.
 - **Vite**: Fast development build tool and local server.
 - **OpenWeatherMap API**: External weather and geocoding services.
 
@@ -32,9 +33,9 @@ A clean and responsive weather consultation application built with React 19, Typ
 - [x] Search form with controlled inputs and validation for city and country.
 - [x] Custom hook `useWeather` for fetching and managing weather data.
 - [x] Environment variables configuration for API key security (`VITE_API_KEY`).
-- [ ] Asynchronous API requests for geocoding and weather data.
-- [ ] API response typing: comparison between Type Guards, Zod, and Valibot.
-- [ ] UI states: loading spinner, conditional results display, error handling, and search reset.
+- [x] Asynchronous API requests for geocoding and weather data.
+- [x] API response typing: comparison between Type Guards, Zod, and Valibot.
+- [ ] UI states: loading spinner, error handling (not found), and search reset.
 - [ ] Post-project challenge: refactor form handling using React Hook Form.
 
 ### Local Installation
@@ -77,6 +78,7 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - **TypeScript**: Tipado estático estricto para componentes, hooks y respuestas de API.
 - **CSS Modules**: Estilos locales y modulares por componente para evitar conflictos.
 - **Axios**: Cliente HTTP basado en promesas para consultas a la API externa.
+- **Zod y Valibot**: Librerías de validación de esquemas para asegurar el tipado de respuestas de API en tiempo de ejecución.
 - **Vite**: Entorno de desarrollo rápido y servidor local.
 - **OpenWeatherMap API**: Servicio externo para datos climáticos y geolocalización.
 
@@ -86,9 +88,9 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - [x] Formulario de búsqueda con campos controlados y validación para ciudad y país.
 - [x] Custom Hook `useWeather` para centralizar la lógica de consulta.
 - [x] Configuración de variables de entorno para proteger la API key (`VITE_API_KEY`).
-- [ ] Peticiones asíncronas hacia los endpoints de geocodificación y clima.
-- [ ] Tipado de respuestas de API: comparativa entre Type Guards, Zod y Valibot.
-- [ ] Estados de la interfaz: spinner de carga, renderizado condicional, manejo de errores y reseteo.
+- [x] Peticiones asíncronas hacia los endpoints de geocodificación y clima.
+- [x] Tipado de respuestas de API: comparativa entre Type Guards, Zod y Valibot.
+- [ ] Estados de la interfaz: spinner de carga, manejo de errores (ciudad no encontrada) y reseteo.
 - [ ] Reto post-proyecto: refactorizar la gestión del formulario con React Hook Form.
 
 ### Instalación local
