@@ -35,7 +35,7 @@ A clean and responsive weather consultation application built with React 19, Typ
 - [x] Environment variables configuration for API key security (`VITE_API_KEY`).
 - [x] Asynchronous API requests for geocoding and weather data.
 - [x] API response typing: comparison between Type Guards, Zod, and Valibot.
-- [ ] UI states: loading spinner, error handling (not found), and search reset.
+- [x] UI states: loading spinner, error handling (not found), and search reset.
 - [ ] Post-project challenge: refactor form handling using React Hook Form.
 
 ### Local Installation
@@ -90,7 +90,7 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - [x] Configuración de variables de entorno para proteger la API key (`VITE_API_KEY`).
 - [x] Peticiones asíncronas hacia los endpoints de geocodificación y clima.
 - [x] Tipado de respuestas de API: comparativa entre Type Guards, Zod y Valibot.
-- [ ] Estados de la interfaz: spinner de carga, manejo de errores (ciudad no encontrada) y reseteo.
+- [x] Estados de la interfaz: spinner de carga, manejo de errores (ciudad no encontrada) y reseteo.
 - [ ] Reto post-proyecto: refactorizar la gestión del formulario con React Hook Form.
 
 ### Instalación local
