@@ -15,8 +15,9 @@ A clean and responsive weather consultation application built with React 19, Typ
 - Allows users to search the current weather for cities across different countries.
 - Validates search forms to prevent empty or invalid queries.
 - Manages asynchronous API calls and handles loading states with a custom spinner.
-- Displays friendly error alerts when a city is not found.
+- Displays friendly error alerts when a city is not found or when external API / rate limit errors occur.
 - Demonstrates safe handling and validation of external API responses using TypeScript, type guards, and schema validation libraries (Zod and Valibot).
+- Supports hybrid deployment: direct client requests for local development and secure server-side reverse proxying with caching for production.
 
 ### Tech Stack
 - **React 19**: Modern component-based UI development.
@@ -26,6 +27,7 @@ A clean and responsive weather consultation application built with React 19, Typ
 - **Axios**: Promise-based HTTP client for external API requests.
 - **Zod & Valibot**: Schema validation libraries to guarantee runtime type safety for API responses.
 - **Vite**: Fast development build tool and local server.
+- **Nginx (Alpine Slim)**: Lightweight web server, reverse proxy, and response caching for production deployment.
 - **OpenWeatherMap API**: External weather and geocoding services.
 
 ### Roadmap
@@ -36,8 +38,9 @@ A clean and responsive weather consultation application built with React 19, Typ
 - [x] Environment variables configuration for API key security (`VITE_API_KEY`).
 - [x] Asynchronous API requests for geocoding and weather data.
 - [x] API response typing: comparison between Type Guards, Zod, and Valibot.
-- [x] UI states: loading spinner, error handling (not found), and search reset.
+- [x] UI states: loading spinner, not found handling, rate-limit/network error alerts, and search reset.
 - [x] Post-project challenge: refactor form handling using React Hook Form.
+- [x] Production architecture: Nginx reverse proxy with server-side API Key injection and `proxy_cache` caching (24h for geocoding, 15m for weather).
 
 ### Local Installation
 1. Clone the repository:
@@ -58,6 +61,12 @@ A clean and responsive weather consultation application built with React 19, Typ
    npm run dev
    ```
 
+### Production Deployment & Security (Docker & Nginx)
+In production, client-side exposure of the API key is completely avoided:
+- Running `npm run build` uses `.env.production` (where `VITE_API_KEY` is empty), generating a bundle that routes requests through `/api/geo` and `/api/weather`.
+- An ultralight Nginx container (`nginx:alpine-slim`) acts as a reverse proxy, appending `&appid=${OPENWEATHER_API_KEY}` on the server side so credentials never reach the browser's Network tab.
+- **Caching (`proxy_cache`)**: Geocoding responses are cached for 24 hours, and weather reports for 15 minutes, safeguarding API rate limits and preventing service disruption.
+
 ---
 
 ## Español
@@ -71,8 +80,9 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - Permite buscar el clima actual de ciudades en distintos países.
 - Valida los formularios de búsqueda para evitar consultas vacías o incompletas.
 - Gestiona peticiones asíncronas a la API y muestra estados de carga con un spinner visual.
-- Controla errores y muestra avisos claros cuando no se encuentra una ciudad.
+- Controla errores y muestra avisos claros cuando no se encuentra una ciudad o cuando ocurre un fallo de red / límite de cuota.
 - Muestra cómo tipar y validar respuestas de APIs externas de forma segura mediante TypeScript, Type Guards y validación de esquemas (Zod y Valibot).
+- Soporta arquitectura híbrida: llamadas directas para desarrollo local y proxy inverso seguro con caché en servidor para producción.
 
 ### Stack Tecnológico
 - **React 19**: Construcción de interfaces con componentes modernos.
@@ -82,6 +92,7 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - **Axios**: Cliente HTTP basado en promesas para consultas a la API externa.
 - **Zod y Valibot**: Librerías de validación de esquemas para asegurar el tipado de respuestas de API en tiempo de ejecución.
 - **Vite**: Entorno de desarrollo rápido y servidor local.
+- **Nginx (Alpine Slim)**: Servidor web ultraligero, proxy inverso y caché de respuestas para despliegue en producción.
 - **OpenWeatherMap API**: Servicio externo para datos climáticos y geolocalización.
 
 ### Hoja de ruta (Roadmap)
@@ -92,8 +103,9 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
 - [x] Configuración de variables de entorno para proteger la API key (`VITE_API_KEY`).
 - [x] Peticiones asíncronas hacia los endpoints de geocodificación y clima.
 - [x] Tipado de respuestas de API: comparativa entre Type Guards, Zod y Valibot.
-- [x] Estados de la interfaz: spinner de carga, manejo de errores (ciudad no encontrada) y reseteo.
+- [x] Estados de la interfaz: spinner de carga, ciudad no encontrada, alertas de fallo de red/cuota y reseteo de búsquedas.
 - [x] Reto post-proyecto: refactorizar la gestión del formulario con React Hook Form.
+- [x] Arquitectura de producción: Proxy inverso con Nginx, inyección de clave en servidor y caché `proxy_cache` (24h en geocodificación, 15m en clima).
 
 ### Instalación local
 1. Clona el repositorio:
@@ -113,3 +125,9 @@ Una aplicación meteorológica clara y adaptable creada con React 19, TypeScript
    ```bash
    npm run dev
    ```
+
+### Despliegue en Producción y Seguridad (Docker y Nginx)
+Para producción se evita exponer la clave de la API en el cliente:
+- Al ejecutar `npm run build`, se toma la configuración de `.env.production` (donde `VITE_API_KEY` está vacía), compilando un bundle que realiza las peticiones a `/api/geo` y `/api/weather`.
+- Un contenedor ultraligero de Nginx (`nginx:alpine-slim`) actúa como proxy inverso e inyecta `&appid=${OPENWEATHER_API_KEY}` en el servidor, de modo que la clave jamás llega a la pestaña Red del navegador.
+- **Caché (`proxy_cache`)**: Las coordenadas de geocodificación se cachean durante 24 horas y el clima durante 15 minutos, blindando la cuota gratuita de la API y garantizando alto rendimiento con consumo mínimo de RAM.

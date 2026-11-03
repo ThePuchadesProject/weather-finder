@@ -53,15 +53,20 @@ export default function useWeather() {
   const [weather, setWeather] = useState<Weather>(initialState);
   const [loading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const fetchWeather = async (search: SearchType) => {
     const appId = import.meta.env.VITE_API_KEY;
     setWeather(initialState);
+    setNotFound(false);
+    setHasError(false);
     setLoading(true);
 
     try {
       const city = encodeURIComponent(search.city);
-      const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${search.country}&appid=${appId}`;
+      const geoUrl = appId
+        ? `https://api.openweathermap.org/geo/1.0/direct?q=${city},${search.country}&appid=${appId}`
+        : `/api/geo?q=${city},${search.country}`;
 
       const { data } = await axios.get(geoUrl);
 
@@ -74,7 +79,9 @@ export default function useWeather() {
       const lat = data[0].lat;
       const lon = data[0].lon;
 
-      const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appId}`;
+      const weatherUrl = appId
+        ? `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appId}`
+        : `/api/weather?lat=${lat}&lon=${lon}`;
 
       // Castear el type
       // const { data: weatherResult } = await axios.get<Weather>(weatherUrl);
@@ -104,9 +111,12 @@ export default function useWeather() {
       const result = Weather.safeParse(weatherResult);
       if (result.success) {
         setWeather(result.data);
+      } else {
+        setHasError(true);
       }
     } catch (error) {
-      console.log("Error trying fetchWeather");
+      console.log("Error trying fetchWeather", error);
+      setHasError(true);
     } finally {
       setLoading(false);
     }
@@ -117,6 +127,7 @@ export default function useWeather() {
     weather,
     loading,
     notFound,
+    hasError,
     fetchWeather,
     hasWeatherData,
   };
